@@ -6,6 +6,13 @@ export type LogoProps = {
 
 const Logo = ({ color = 'white' }: LogoProps) => (
   <S.Wrapper color={color}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 158 48"
+      role="img"
+      aria-label="Won Games"
+    ></svg>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 158 48">
       <path
         fill="url(#paint0_linear)"
