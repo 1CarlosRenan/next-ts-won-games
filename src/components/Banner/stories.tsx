@@ -1,28 +1,23 @@
 import { Story, Meta } from '@storybook/react/types-6-0'
-import Ribbon, { RibbonProps } from '.'
+import Banner, { BannerProps } from '.'
 
 export default {
-  title: 'Ribbon',
-  component: Ribbon,
+  title: 'Banner',
+  component: Banner,
   args: {
-    children: 'Best Seller'
+    img: 'https://source.unsplash.com/user/willianjusten/1042x580',
+    title: 'Defy death',
+    subtitle: '<p>Play the new <strong>CrashLands</strong> season',
+    buttonLabel: 'Buy now',
+    buttonLink: '/games/defy-death'
   },
-  argTypes: {
-    children: {
-      type: 'string'
-    }
+  parameters: {
+    layout: 'fullscreen'
   }
 } as Meta
 
-export const Default: Story<RibbonProps> = (args) => (
-  <div
-    style={{
-      width: '40rem',
-      height: '25rem',
-      position: 'relative',
-      backgroundColor: '#888'
-    }}
-  >
-    <Ribbon {...args} />
+export const Default: Story<BannerProps> = (args) => (
+  <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
+    <Banner {...args} />
   </div>
 )
