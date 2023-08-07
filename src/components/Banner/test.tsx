@@ -1,30 +1,46 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import Banner from '.'
+import Ribbon from '.'
 
-const props = {
-  img: 'https://source.unsplash.com/user/willianjusten/1042x580',
-  title: 'Defy death',
-  subtitle: '<p>Play the new <strong>CrashLands</strong> season',
-  buttonLabel: 'Buy now',
-  buttonLink: '/games/defy-death'
-}
+describe('<Ribbon />', () => {
+  it('should render the text correctly', () => {
+    renderWithTheme(<Ribbon>Best Seller</Ribbon>)
 
-describe('<Banner />', () => {
-  it('should render correctly', () => {
-    const { container } = renderWithTheme(<Banner {...props} />)
+    expect(screen.getByText(/Best Seller/i)).toBeInTheDocument()
+  })
 
-    expect(
-      screen.getByRole('heading', { name: /Defy death/i })
-    ).toBeInTheDocument()
+  it('should render with the primary color', () => {
+    renderWithTheme(<Ribbon>Best Seller</Ribbon>)
 
-    expect(
-      screen.getByRole('heading', { name: /Play the new CrashLands season/i })
-    ).toBeInTheDocument()
+    expect(screen.getByText(/Best Seller/i)).toHaveStyle({
+      backgroundColor: '#F231A5'
+    })
+  })
 
-    expect(screen.getByRole('img', { name: /Defy death/i })).toBeInTheDocument()
+  it('should render with the secondary color', () => {
+    renderWithTheme(<Ribbon color="secondary">Best Seller</Ribbon>)
 
-    expect(container.firstChild).toMatchSnapshot()
+    expect(screen.getByText(/Best Seller/i)).toHaveStyle({
+      backgroundColor: '#3CD3C1'
+    })
+  })
+
+  it('should render with the normal size as default', () => {
+    renderWithTheme(<Ribbon>Best Seller</Ribbon>)
+
+    expect(screen.getByText(/Best Seller/i)).toHaveStyle({
+      height: '3.6rem',
+      fontSize: '1.4rem'
+    })
+  })
+
+  it('should render with the small size', () => {
+    renderWithTheme(<Ribbon size="small">Best Seller</Ribbon>)
+
+    expect(screen.getByText(/Best Seller/i)).toHaveStyle({
+      height: '2.6rem',
+      fontSize: '1.2rem'
+    })
   })
 })
