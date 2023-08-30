@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
-
 export const Wrapper = styled.menu`
   ${({ theme }) => css`
     display: flex;
@@ -9,7 +8,6 @@ export const Wrapper = styled.menu`
     position: relative;
   `}
 `
-
 export const LogoWrapper = styled.div`
   ${media.lessThan('medium')`
     position: absolute;
@@ -17,7 +15,6 @@ export const LogoWrapper = styled.div`
     transform: translateX(-50%);
   `}
 `
-
 export const IconWrapper = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.white};
@@ -26,28 +23,24 @@ export const IconWrapper = styled.div`
     height: 2.4rem;
   `}
 `
-
 export const MenuGroup = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
     align-items: center;
-
     > div {
       margin-left: ${theme.spacings.xsmall};
     }
   `}
 `
-
 export const MenuNav = styled.div`
   ${({ theme }) => css`
     ${media.greaterThan('medium')`
-      margin-left: ${theme.spacings.small};
-    `}
+			margin-left: ${theme.spacings.small};
+		`}
   `}
 `
-
 export const MenuLink = styled.a`
   ${({ theme }) => css`
     position: relative;
@@ -78,18 +71,17 @@ export const MenuLink = styled.a`
     }
   `}
 `
-
 type MenuFullProps = {
   isOpen: boolean
 }
-
 export const MenuFull = styled.nav<MenuFullProps>`
   ${({ theme, isOpen }) => css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background: ${theme.colors.white};
-    position: absolute;
+    position: fixed;
+    z-index: ${theme.layers.menu};
     top: 0;
     bottom: 0;
     left: 0;
@@ -129,7 +121,6 @@ export const MenuFull = styled.nav<MenuFullProps>`
     }
   `}
 `
-
 export const RegisterBox = styled.div`
   ${({ theme }) => css`
     display: flex;
@@ -143,7 +134,6 @@ export const RegisterBox = styled.div`
     }
   `}
 `
-
 export const CreateAccount = styled.a`
   ${({ theme }) => css`
     text-decoration: none;
