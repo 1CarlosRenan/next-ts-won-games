@@ -27,10 +27,6 @@ const Checkbox = ({
     setChecked(status)
 
     !!onCheck && onCheck(status)
-
-    if (onCheck) {
-      onCheck(status)
-    }
   }
 
   return (
@@ -51,5 +47,4 @@ const Checkbox = ({
     </S.Wrapper>
   )
 }
-
 export default Checkbox
