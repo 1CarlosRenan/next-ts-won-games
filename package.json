@@ -41,7 +41,7 @@
     "@storybook/manager-webpack5": "^6.4.17",
     "@storybook/react": "6.4.17",
     "@styled-icons/fa-brands": "10.22.0",
-    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "12.1.8",
     "@types/jest": "^27.4.0",
